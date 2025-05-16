@@ -2,7 +2,7 @@
   "name": "pekarnya",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Kamar2499.github.io/Pekarnya1",
+  "homepage": "./",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
