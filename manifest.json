@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Свежая выпечка",
+  "name": "Свежая выпечка - Пекарня ручной работы",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "description": "Вкуснейшие хлебобулочные изделия ручной работы из натуральных ингредиентов",
+  "theme_color": "#5D4037",
+  "background_color": "#FFF8F0"
 }
