@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -63,23 +62,11 @@ export const Footer = () => {
         <Box sx={{ 
           borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
           pt: 4,
-          display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: 2
+          textAlign: 'center'
         }}>
           <Typography variant="body2" sx={{ opacity: 0.6 }}>
             © {new Date().getFullYear()} Свежая выпечка. Все права защищены.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 3 }}>
-            <Typography variant="body2" component={Link} to="/privacy" sx={{ color: 'inherit', opacity: 0.8, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-              Политика конфиденциальности
-            </Typography>
-            <Typography variant="body2" component={Link} to="/terms" sx={{ color: 'inherit', opacity: 0.8, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-              Условия использования
-            </Typography>
-          </Box>
         </Box>
       </Container>
     </Box>

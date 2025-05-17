@@ -163,7 +163,7 @@ const Contacts = () => {
           <Box sx={{ height: 400, width: '100%', borderRadius: 2, overflow: 'hidden' }}>
             <iframe
               title="Наше местоположение"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.372959246882!2d37.6172993159307!3d55.75582628055298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa887f5c8f0f1f3f5!2z0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p&amp;source=constructor"
               width="100%"
               height="100%"
               style={{ border: 0 }}
