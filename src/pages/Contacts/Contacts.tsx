@@ -81,12 +81,14 @@ const Contacts = () => {
               <Box sx={{ mt: 2 }}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 'medium', mb: 2 }}>Мы в соцсетях</Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
-                  {['Instagram', 'VK', 'Telegram'].map((network) => (
+                  {['VK', 'Telegram'].map((network) => (
                     <Chip
                       key={network}
                       label={network}
                       component="a"
-                      href="#"
+                      href={network === 'VK' ? 'https://vk.com' : 'https://t.me'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       clickable
                       variant="outlined"
                       sx={{ '&:hover': { bgcolor: 'action.hover' } }}
@@ -163,7 +165,7 @@ const Contacts = () => {
           <Box sx={{ height: 400, width: '100%', borderRadius: 2, overflow: 'hidden' }}>
             <iframe
               title="Наше местоположение"
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p&amp;source=constructor"
+              src="https://yandex.ru/map-widget/v1/?ll(44.5166,48.7071&z=16&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjMxMTQ2NjQyEpoB0KDQvtGB0YHQuNGPLCDQktC-0LfQvNC-0LbQvdGW0LrQsCDQo9C60YDQsNC40L3QutC4LdCb0L7QvNC40YDRg9C_0L7Qu9GPLCDQktC-0LfQvNC-0LbQvdC10YHQutC-0Lkg0YHQsNC50YIsINCj0LrRgNCw0LjQvdGC0L7Qv9C-0LvRjNGB0LrQsNGPINGD0YHRgtCw0L3QvtCy0LrQuCDQl9Cw0LrRgNGD0LMgMjEiCg3L8h9CFf3uX0I%2C&z=16.8"
               width="100%"
               height="100%"
               style={{ border: 0 }}
