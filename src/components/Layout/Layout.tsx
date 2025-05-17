@@ -90,13 +90,17 @@ const Layout = () => {
           elevation={scrolled ? 4 : 0}
           sx={{
             transition: 'all 0.3s ease-in-out',
-            backgroundColor: scrolled ? 'rgba(121, 85, 72, 0.95)' : 'primary.main',
+            backgroundColor: scrolled ? 'rgba(93, 64, 55, 0.98)' : 'primary.main',
             backdropFilter: scrolled ? 'blur(10px)' : 'none',
             py: scrolled ? 0.5 : 0,
+            width: '100%',
+            maxWidth: '100%',
+            px: 0,
+            m: 0,
           }}
         >
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
+          <Box sx={{ width: '100%', maxWidth: '1440px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
+            <Toolbar disableGutters sx={{ px: 0 }}>
               <Fade in={!scrolled} timeout={500}>
                 <Typography 
                   variant="h5" 
@@ -113,7 +117,7 @@ const Layout = () => {
                     letterSpacing: '1px',
                   }}
                 >
-                  Пекарня "Вкусный уголок"
+                  Свежая выпечка
                 </Typography>
               </Fade>
               
@@ -138,15 +142,13 @@ const Layout = () => {
                 ))}
               </Box>
             </Toolbar>
-          </Container>
+          </Box>
         </AppBar>
       </HideOnScroll>
       <Toolbar /> {/* Отступ для фиксированного AppBar */}
       
-      <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
-        <Container maxWidth="lg">
-          <Outlet />
-        </Container>
+      <Box component="main" sx={{ flexGrow: 1, width: '100%', maxWidth: '100%', p: 0, m: 0 }}>
+        <Outlet />
       </Box>
       
       <Footer />

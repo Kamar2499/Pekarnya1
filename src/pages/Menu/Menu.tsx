@@ -3,6 +3,13 @@ import { Container, Typography, Box, Tabs, Tab, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
+interface NutritionInfo {
+  proteins: number;
+  fats: number;
+  carbs: number;
+  calories: number;
+}
+
 interface Product {
   id: number;
   name: string;
@@ -10,6 +17,7 @@ interface Product {
   price: number;
   image: string;
   category: string;
+  nutrition: NutritionInfo;
 }
 
 const Menu = () => {
@@ -28,48 +36,84 @@ const Menu = () => {
             name: 'Хлеб ржаной',
             description: 'Ароматный ржаной хлеб на закваске',
             price: 120,
-            image: 'https://source.unsplash.com/random/400x300/?rye-bread',
-            category: 'bread'
+            image: '/images/u-6e32659b6d6d8912ac3488ad8b805e58.jpg',
+            category: 'bread',
+            nutrition: {
+              proteins: 6.6,
+              fats: 1.2,
+              carbs: 42.4,
+              calories: 200
+            }
           },
           {
             id: 2,
             name: 'Круассан с шоколадом',
             description: 'Слоеный круассан с начинкой из темного шоколада',
             price: 150,
-            image: 'https://source.unsplash.com/random/400x300/?croissant',
-            category: 'pastry'
+            image: '/images/shutterstock_1074425702_1663856296-320x480.jpg',
+            category: 'pastry',
+            nutrition: {
+              proteins: 7.4,
+              fats: 21.2,
+              carbs: 45.1,
+              calories: 420
+            }
           },
           {
             id: 3,
             name: 'Пирог с яблоками',
             description: 'Ароматный пирог с яблочной начинкой и корицей',
             price: 180,
-            image: 'https://source.unsplash.com/random/400x300/?apple-pie',
-            category: 'pie'
+            image: '/images/images.jpg',
+            category: 'pie',
+            nutrition: {
+              proteins: 3.8,
+              fats: 11.5,
+              carbs: 52.3,
+              calories: 320
+            }
           },
           {
             id: 4,
             name: 'Багет французский',
             description: 'Хрустящий багет с хрустящей корочкой',
             price: 110,
-            image: 'https://source.unsplash.com/random/400x300/?baguette',
-            category: 'bread'
+            image: '/images/screenshot15.jpg',
+            category: 'bread',
+            nutrition: {
+              proteins: 7.5,
+              fats: 1.3,
+              carbs: 49.2,
+              calories: 240
+            }
           },
           {
             id: 5,
             name: 'Эклер с заварным кремом',
             description: 'Нежное заварное тесто с ванильным кремом',
             price: 160,
-            image: 'https://source.unsplash.com/random/400x300/?eclair',
-            category: 'pastry'
+            image: '/images/images11.jpg',
+            category: 'pastry',
+            nutrition: {
+              proteins: 5.2,
+              fats: 15.8,
+              carbs: 35.7,
+              calories: 320
+            }
           },
           {
             id: 6,
             name: 'Черничный чизкейк',
             description: 'Нежный чизкейк с черничным соусом',
             price: 220,
-            image: 'https://source.unsplash.com/random/400x300/?cheesecake',
-            category: 'cake'
+            image: '/images/images222.jpg',
+            category: 'cake',
+            nutrition: {
+              proteins: 6.8,
+              fats: 22.5,
+              carbs: 30.1,
+              calories: 380
+            }
           },
         ]);
         setLoading(false);

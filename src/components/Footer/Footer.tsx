@@ -70,7 +70,7 @@ export const Footer = () => {
           gap: 2
         }}>
           <Typography variant="body2" sx={{ opacity: 0.6 }}>
-            © {new Date().getFullYear()} Пекарня «Русский каравай». Все права защищены.
+            © {new Date().getFullYear()} Свежая выпечка. Все права защищены.
           </Typography>
           <Box sx={{ display: 'flex', gap: 3 }}>
             <Typography variant="body2" component={Link} to="/privacy" sx={{ color: 'inherit', opacity: 0.8, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>

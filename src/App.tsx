@@ -1,7 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme, type ThemeOptions } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { PaletteMode } from '@mui/material';
+import { PaletteMode, GlobalStyles } from '@mui/material';
 import { useMemo, useState } from 'react';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
@@ -31,22 +31,26 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
   palette: {
     mode,
     primary: {
-      main: '#8B4513', // Коричневый цвет выпечки
-      light: '#A0522D',
-      dark: '#5D4037',
+      main: '#5D4037', // Теплый коричневый
+      light: '#8D6E63',
+      dark: '#3E2723',
       contrastText: '#FFF8E1',
     },
     secondary: {
-      main: '#FFD700', // Золотистый цвет
-      light: '#FFECB3',
-      dark: '#FFA000',
-      contrastText: '#5D4037',
+      main: '#FFA000', // Теплый оранжево-желтый
+      light: '#FFC046',
+      dark: '#C67100',
+      contrastText: '#3E2723',
     },
     ...(mode === 'light'
       ? {
           background: {
             default: '#FFF8F0', // Кремовый фон
-            paper: '#FFFDE7', // Светло-желтый для карточек
+            paper: '#FFF8E1', // Светло-кремовый для карточек
+          },
+          text: {
+            primary: '#3E2723',
+            secondary: '#5D4037',
           },
         }
       : {
@@ -54,21 +58,37 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
             default: '#212121',
             paper: '#424242',
           },
+          text: {
+            primary: '#FFF8E1',
+            secondary: '#FFECB3',
+          },
         }),
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Playfair Display", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontWeight: 500,
+      fontWeight: 700,
+      fontFamily: '"Playfair Display", serif',
     },
     h2: {
-      fontWeight: 500,
+      fontWeight: 600,
+      fontFamily: '"Playfair Display", serif',
     },
     h3: {
-      fontWeight: 500,
+      fontWeight: 600,
+      fontFamily: '"Playfair Display", serif',
+    },
+    h4: {
+      fontWeight: 600,
+      fontFamily: '"Playfair Display", serif',
     },
     button: {
       textTransform: 'none' as const,
+      fontWeight: 600,
+    },
+    body1: {
+      fontSize: '1.1rem',
+      lineHeight: 1.7,
     },
   },
   components: {
@@ -107,6 +127,40 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <GlobalStyles
+        styles={{
+          '@keyframes grain': {
+            '0%, 100%': { transform: 'translate(0, 0)' },
+            '10%': { transform: 'translate(-5%, -10%)' },
+            '20%': { transform: 'translate(-15%, 5%)' },
+            '30%': { transform: 'translate(7%, -25%)' },
+            '40%': { transform: 'translate(-5%, 25%)' },
+            '50%': { transform: 'translate(-15%, 10%)' },
+            '60%': { transform: 'translate(15%, 0%)' },
+            '70%': { transform: 'translate(0%, 15%)' },
+            '80%': { transform: 'translate(3%, 35%)' },
+            '90%': { transform: 'translate(-10%, 10%)' },
+          },
+          '::selection': {
+            background: theme.palette.secondary.main,
+            color: theme.palette.getContrastText(theme.palette.secondary.main),
+          },
+          '::-webkit-scrollbar': {
+            width: '8px',
+            height: '8px',
+          },
+          '::-webkit-scrollbar-track': {
+            background: theme.palette.background.default,
+          },
+          '::-webkit-scrollbar-thumb': {
+            background: theme.palette.secondary.main,
+            borderRadius: '4px',
+            '&:hover': {
+              background: theme.palette.secondary.dark,
+            },
+          },
+        }}
+      />
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
