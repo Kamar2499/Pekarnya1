@@ -35,7 +35,7 @@ const Contacts = () => {
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 'medium' }}>Адрес</Typography>
                   <Typography color="text.secondary">Волгоград, ул. 51-й Гвардейской Дивизии</Typography>
-                  <Link href="https://yandex.ru/maps/org/pekarstvo/" target="_blank" rel="noopener noreferrer" color="primary" sx={{ display: 'inline-block', mt: 1 }}>
+                  <Link href="https://yandex.ru/maps/38/volgograd/?ll=44.492249%2C48.768252&mode=poi&poi%5Bpoint%5D=44.492229%2C48.768251&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D84047717558&z=21" target="_blank" rel="noopener noreferrer" color="primary" sx={{ display: 'inline-block', mt: 1 }}>
                     Посмотреть на карте
                   </Link>
                 </Box>
@@ -165,7 +165,7 @@ const Contacts = () => {
           <Box sx={{ height: 400, width: '100%', borderRadius: 2, overflow: 'hidden' }}>
             <iframe
               title="Наше местоположение"
-              src="https://yandex.ru/map-widget/v1/?ll(44.5166,48.7071&z=16&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNjMxMTQ2NjQyEpoB0KDQvtGB0YHQuNGPLCDQktC-0LfQvNC-0LbQvdGW0LrQsCDQo9C60YDQsNC40L3QutC4LdCb0L7QvNC40YDRg9C_0L7Qu9GPLCDQktC-0LfQvNC-0LbQvdC10YHQutC-0Lkg0YHQsNC50YIsINCj0LrRgNCw0LjQvdGC0L7Qv9C-0LvRjNGB0LrQsNGPINGD0YHRgtCw0L3QvtCy0LrQuCDQl9Cw0LrRgNGD0LMgMjEiCg3L8h9CFf3uX0I%2C&z=16.8"
+              src="https://yandex.ru/map-widget/v1/?ll=44.492249%2C48.768252&mode=poi&poi[point]=44.492229%2C48.768251&poi[uri]=ymapsbm1%3A%2F%2Forg%3Foid%3D84047717558&z=17"
               width="100%"
               height="100%"
               style={{ border: 0 }}
