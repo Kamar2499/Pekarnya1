@@ -29,8 +29,8 @@ export const Footer = () => {
           </Box>
           <Box>
             <Typography variant="h6" sx={{ mb: 2, color: 'secondary.main' }}>Контакты</Typography>
-            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📍 г. Москва, ул. Большая Дмитровка, 7/5с1</Typography>
-            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📞 +7 (495) 123-45-67</Typography>
+            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📍 Волгоград, ул. 51-й Гвардейской Дивизии</Typography>
+            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📞 +7 (8442) 12-34-56</Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>✉️ info@pekarstvo.ru</Typography>
           </Box>
           <Box>
