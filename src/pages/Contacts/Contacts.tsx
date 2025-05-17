@@ -34,8 +34,8 @@ const Contacts = () => {
                 <LocationOn color="primary" sx={{ mr: 2, mt: 0.5, flexShrink: 0 }} />
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 'medium' }}>Адрес</Typography>
-                  <Typography color="text.secondary">г. Москва, ул. Пирогова, д. 15</Typography>
-                  <Link href="#" color="primary" sx={{ display: 'inline-block', mt: 1 }}>
+                  <Typography color="text.secondary">г. Москва, ул. Большая Дмитровка, 7/5с1</Typography>
+                  <Link href="https://yandex.ru/maps/-/CDBQbPjB" target="_blank" rel="noopener noreferrer" color="primary" sx={{ display: 'inline-block', mt: 1 }}>
                     Посмотреть на карте
                   </Link>
                 </Box>
@@ -55,8 +55,8 @@ const Contacts = () => {
                 <Email color="primary" sx={{ mr: 2 }} />
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 'medium' }}>Email</Typography>
-                  <Link href="mailto:info@vkusny-ugolok.ru" color="text.secondary" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
-                    info@vkusny-ugolok.ru
+                  <Link href="mailto:info@pekarstvo.ru" color="text.secondary" sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                    info@pekarstvo.ru
                   </Link>
                 </Box>
               </Box>

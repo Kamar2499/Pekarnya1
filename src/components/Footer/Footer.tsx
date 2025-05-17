@@ -29,14 +29,14 @@ export const Footer = () => {
           </Box>
           <Box>
             <Typography variant="h6" sx={{ mb: 2, color: 'secondary.main' }}>Контакты</Typography>
-            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📍 Улица Пушкина, 42</Typography>
-            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📞 +7 (XXX) XXX-XX-XX</Typography>
+            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📍 г. Москва, ул. Большая Дмитровка, 7/5с1</Typography>
+            <Typography variant="body2" sx={{ mb: 1, opacity: 0.8 }}>📞 +7 (495) 123-45-67</Typography>
             <Typography variant="body2" sx={{ opacity: 0.8 }}>✉️ info@pekarstvo.ru</Typography>
           </Box>
           <Box>
             <Typography variant="h6" sx={{ mb: 2, color: 'secondary.main' }}>Мы в соцсетях</Typography>
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-              {['Instagram', 'VK', 'Telegram'].map((social) => (
+              {['VK', 'Telegram'].map((social) => (
                 <Button 
                   key={social}
                   variant="outlined" 
