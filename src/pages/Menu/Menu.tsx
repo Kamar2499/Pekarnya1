@@ -36,7 +36,7 @@ const Menu = () => {
             name: 'Хлеб ржаной',
             description: 'Ароматный ржаной хлеб на закваске',
             price: 120,
-            image: '/images/u-6e32659b6d6d8912ac3488ad8b805e58.jpg',
+            image: 'images/u-6e32659b6d6d8912ac3488ad8b805e58.jpg',
             category: 'bread',
             nutrition: {
               proteins: 6.6,
@@ -50,7 +50,7 @@ const Menu = () => {
             name: 'Круассан с шоколадом',
             description: 'Слоеный круассан с начинкой из темного шоколада',
             price: 150,
-            image: '/images/shutterstock_1074425702_1663856296-320x480.jpg',
+            image: 'images/shutterstock_1074425702_1663856296-320x480.jpg',
             category: 'pastry',
             nutrition: {
               proteins: 7.4,
@@ -64,7 +64,7 @@ const Menu = () => {
             name: 'Пирог с яблоками',
             description: 'Ароматный пирог с яблочной начинкой и корицей',
             price: 180,
-            image: '/images/images.jpg',
+            image: 'images/images.jpg',
             category: 'pie',
             nutrition: {
               proteins: 3.8,
@@ -78,7 +78,7 @@ const Menu = () => {
             name: 'Багет французский',
             description: 'Хрустящий багет с хрустящей корочкой',
             price: 110,
-            image: '/images/screenshot15.jpg',
+            image: 'images/screenshot15.jpg',
             category: 'bread',
             nutrition: {
               proteins: 7.5,
@@ -92,7 +92,7 @@ const Menu = () => {
             name: 'Эклер с заварным кремом',
             description: 'Нежное заварное тесто с ванильным кремом',
             price: 160,
-            image: '/images/images11.jpg',
+            image: 'images/images11.jpg',
             category: 'pastry',
             nutrition: {
               proteins: 5.2,
@@ -106,7 +106,7 @@ const Menu = () => {
             name: 'Черничный чизкейк',
             description: 'Нежный чизкейк с черничным соусом',
             price: 220,
-            image: '/images/images222.jpg',
+            image: 'images/images222.jpg',
             category: 'cake',
             nutrition: {
               proteins: 6.8,
