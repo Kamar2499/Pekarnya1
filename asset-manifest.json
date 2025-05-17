@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Pekarnya1/static/css/main.d3879e78.css",
-    "main.js": "/Pekarnya1/static/js/main.67ee0b27.js",
+    "main.js": "/Pekarnya1/static/js/main.555232ac.js",
     "static/js/453.b355579d.chunk.js": "/Pekarnya1/static/js/453.b355579d.chunk.js",
     "index.html": "/Pekarnya1/index.html",
-    "main.67ee0b27.js.map": "/Pekarnya1/static/js/main.67ee0b27.js.map",
+    "main.555232ac.js.map": "/Pekarnya1/static/js/main.555232ac.js.map",
     "453.b355579d.chunk.js.map": "/Pekarnya1/static/js/453.b355579d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3879e78.css",
-    "static/js/main.67ee0b27.js"
+    "static/js/main.555232ac.js"
   ]
 }
