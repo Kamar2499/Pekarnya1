@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, Box, Tabs, Tab, Paper, useMediaQuery, useTheme } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Container, Typography, Box, Tabs, Tab, Paper } from '@mui/material';
+import { motion } from 'framer-motion';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import { useCart } from '../../contexts/CartContext';
 
 interface NutritionInfo {
   proteins: number;
@@ -26,31 +25,6 @@ const Menu = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [tabValue, setTabValue] = useState('all');
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { addToCart } = useCart();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
 
   useEffect(() => {
     const fetchProducts = () => {
@@ -247,7 +221,6 @@ const Menu = () => {
     fetchProducts();
   }, []);
 
-
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
@@ -281,161 +254,66 @@ const Menu = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 4 }, px: { xs: 1, sm: 2 } }}>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Typography
-          variant="h3"
-          component="h1"
-          gutterBottom
-          align="center"
-          sx={{
-            mb: 4,
-            fontWeight: 'bold',
-            fontSize: { xs: '2rem', sm: '2.5rem' },
-            background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            display: 'inline-block',
-            width: '100%',
-          }}
-        >
-          Наше меню
-        </Typography>
-      </motion.div>
-
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: 0.5 }}
       >
-        <Paper
-          elevation={2}
-          sx={{
-            mb: 4,
-            borderRadius: 3,
-            overflow: 'hidden',
-            background: 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-          }}
-        >
+        <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 4, fontWeight: 'bold' }}>
+          Наше меню
+        </Typography>
+        
+        <Paper sx={{ mb: 4, borderRadius: 2, overflow: 'hidden' }}>
           <Tabs
             value={tabValue}
-            onChange={(_, newValue) => setTabValue(newValue)}
-            variant={isMobile ? 'scrollable' : 'fullWidth'}
+            onChange={handleTabChange}
+            variant="scrollable"
             scrollButtons="auto"
             aria-label="Категории меню"
             sx={{
               '& .MuiTabs-indicator': {
-                height: 4,
-                borderRadius: '2px 2px 0 0',
-                backgroundColor: theme.palette.secondary.main,
+                backgroundColor: 'primary.main',
+                height: 3,
               },
             }}
           >
-            <Tab label="Все" value="all" sx={{ py: 2, fontSize: { xs: '0.8rem', sm: '1rem' } }} />
-            <Tab label="Хлеб" value="bread" sx={{ py: 2, fontSize: { xs: '0.8rem', sm: '1rem' } }} />
-            <Tab label="Выпечка" value="pastry" sx={{ py: 2, fontSize: { xs: '0.8rem', sm: '1rem' } }} />
-            <Tab label="Пироги" value="pie" sx={{ py: 2, fontSize: { xs: '0.8rem', sm: '1rem' } }} />
-            <Tab label="Торты" value="cake" sx={{ py: 2, fontSize: { xs: '0.8rem', sm: '1rem' } }} />
+            <Tab value="all" label="Все" />
+            <Tab value="bread" label="Хлеб" />
+            <Tab value="pastry" label="Выпечка" />
+            <Tab value="pie" label="Пироги" />
+            <Tab value="cake" label="Торты" />
           </Tabs>
         </Paper>
       </motion.div>
 
-      {loading ? (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          minHeight="50vh"
-          component={motion.div}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              rotate: { repeat: Infinity, duration: 2, ease: 'linear' },
-              scale: { repeat: Infinity, duration: 1.5, ease: 'easeInOut' },
-            }}
-          >
-            <Box
-              component="img"
-              src="/bread-icon.svg"
-              alt="Loading..."
-              sx={{ width: 80, height: 80, filter: 'drop-shadow(0 0 8px rgba(255, 160, 0, 0.5))' }}
+      <Box 
+        component={motion.div}
+        variants={container}
+        initial="hidden"
+        animate="show"
+        key={tabValue}
+        sx={{ 
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+          gap: 4,
+          mt: 4
+        }}
+      >
+        {filteredProducts.map((product) => (
+          <motion.div key={product.id} variants={item}>
+            <ProductCard
+              id={product.id}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              image={product.image}
+              weight={product.weight}
+              nutrition={product.nutrition}
             />
           </motion.div>
-        </Box>
-      ) : (
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <Box
-            display="grid"
-            gridTemplateColumns={{
-              xs: '1fr',
-              sm: 'repeat(2, 1fr)',
-              md: 'repeat(3, 1fr)',
-              lg: 'repeat(4, 1fr)',
-            }}
-            gap={{ xs: 2, sm: 3 }}
-          >
-            <AnimatePresence>
-              {products
-                .filter(product => tabValue === 'all' || product.category === tabValue)
-                .map((product) => (
-                  <motion.div
-                    key={product.id}
-                    variants={itemVariants}
-                    layout
-                    initial="hidden"
-                    animate="visible"
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                    style={{ position: 'relative' }}
-                  >
-                    <ProductCard
-                      id={product.id}
-                      name={product.name}
-                      description={product.description}
-                      price={product.price}
-                      image={product.image}
-                      weight={product.weight}
-                      nutrition={product.nutrition}
-                    />
-                  </motion.div>
-                ))}
-            </AnimatePresence>
-          </Box>
-
-          {products.filter(product => tabValue === 'all' || product.category === tabValue).length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              style={{ textAlign: 'center', padding: '4rem 1rem' }}
-            >
-              <Typography variant="h6" color="textSecondary" gutterBottom>
-                В этой категории пока нет товаров
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                Скоро добавим что-то новенькое!
-              </Typography>
-            </motion.div>
-          )}
-        </motion.div>
-      )}
+        ))}
+      </Box>
     </Container>
   );
 };

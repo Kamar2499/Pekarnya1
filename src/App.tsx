@@ -3,11 +3,13 @@ import { ThemeProvider, createTheme, type ThemeOptions } from '@mui/material/sty
 import CssBaseline from '@mui/material/CssBaseline';
 import { PaletteMode, GlobalStyles } from '@mui/material';
 import { useMemo, useState } from 'react';
+import { CartProvider } from './contexts/CartContext';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
 import Menu from './pages/Menu/Menu';
 import About from './pages/About/About';
 import Contacts from './pages/Contacts/Contacts';
+import Cart from './components/Cart/Cart';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
@@ -112,6 +114,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
 
 const App = () => {
   const [mode, setMode] = useState<PaletteMode>('light');
+  const [isCartOpen, setIsCartOpen] = useState(false);
   
   const colorMode = useMemo(
     () => ({
@@ -124,54 +127,60 @@ const App = () => {
 
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <GlobalStyles
-        styles={{
-          '@keyframes grain': {
-            '0%, 100%': { transform: 'translate(0, 0)' },
-            '10%': { transform: 'translate(-5%, -10%)' },
-            '20%': { transform: 'translate(-15%, 5%)' },
-            '30%': { transform: 'translate(7%, -25%)' },
-            '40%': { transform: 'translate(-5%, 25%)' },
-            '50%': { transform: 'translate(-15%, 10%)' },
-            '60%': { transform: 'translate(15%, 0%)' },
-            '70%': { transform: 'translate(0%, 15%)' },
-            '80%': { transform: 'translate(3%, 35%)' },
-            '90%': { transform: 'translate(-10%, 10%)' },
-          },
-          '::selection': {
-            background: theme.palette.secondary.main,
-            color: theme.palette.getContrastText(theme.palette.secondary.main),
-          },
-          '::-webkit-scrollbar': {
-            width: '8px',
-            height: '8px',
-          },
-          '::-webkit-scrollbar-track': {
-            background: theme.palette.background.default,
-          },
-          '::-webkit-scrollbar-thumb': {
-            background: theme.palette.secondary.main,
-            borderRadius: '4px',
-            '&:hover': {
-              background: theme.palette.secondary.dark,
+    <CartProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            '@keyframes grain': {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '10%': { transform: 'translate(-5%, -10%)' },
+              '20%': { transform: 'translate(-15%, 5%)' },
+              '30%': { transform: 'translate(7%, -25%)' },
+              '40%': { transform: 'translate(-5%, 25%)' },
+              '50%': { transform: 'translate(-15%, 10%)' },
+              '60%': { transform: 'translate(15%, 0%)' },
+              '70%': { transform: 'translate(0%, 15%)' },
+              '80%': { transform: 'translate(3%, 35%)' },
+              '90%': { transform: 'translate(-10%, 10%)' },
             },
-          },
-        }}
-      />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="menu" element={<Menu />} />
-            <Route path="about" element={<About />} />
-            <Route path="contacts" element={<Contacts />} />
-          </Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+            '::selection': {
+              background: theme.palette.secondary.main,
+              color: theme.palette.getContrastText(theme.palette.secondary.main),
+            },
+            '::-webkit-scrollbar': {
+              width: '8px',
+              height: '8px',
+            },
+            '::-webkit-scrollbar-track': {
+              background: theme.palette.background.default,
+            },
+            '::-webkit-scrollbar-thumb': {
+              background: theme.palette.secondary.main,
+              borderRadius: '4px',
+              '&:hover': {
+                background: theme.palette.secondary.dark,
+              },
+            },
+          }}
+        />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout onCartClick={openCart} />}>
+              <Route index element={<Home />} />
+              <Route path="menu" element={<Menu />} />
+              <Route path="about" element={<About />} />
+              <Route path="contacts" element={<Contacts />} />
+            </Route>
+          </Routes>
+        </Router>
+        <Cart open={isCartOpen} onClose={closeCart} />
+      </ThemeProvider>
+    </CartProvider>
   );
 };
 
