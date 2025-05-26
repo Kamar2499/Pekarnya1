@@ -62,7 +62,7 @@ const Menu = () => {
             name: 'Хлеб ржаной',
             description: 'Ароматный ржаной хлеб на закваске',
             price: 120,
-            image: 'images/u-6e32659b6d6d8912ac3488ad8b805e58.jpg',
+            image: '/images/u-6e32659b6d6d8912ac3488ad8b805e58.jpg',
             category: 'bread',
             weight: 500,
             nutrition: {
@@ -77,7 +77,7 @@ const Menu = () => {
             name: 'Круассан с шоколадом',
             description: 'Слоеный круассан с начинкой из темного шоколада',
             price: 150,
-            image: 'images/shutterstock_1074425702_1663856296-320x480.jpg',
+            image: '/images/shutterstock_1074425702_1663856296-320x480.jpg',
             category: 'pastry',
             weight: 100,
             nutrition: {
@@ -92,7 +92,7 @@ const Menu = () => {
             name: 'Пирог с яблоками',
             description: 'Ароматный пирог с яблочной начинкой и корицей',
             price: 180,
-            image: 'images/images.jpg',
+            image: '/images/images.jpg',
             category: 'pie',
             weight: 350,
             nutrition: {
@@ -107,7 +107,7 @@ const Menu = () => {
             name: 'Багет французский',
             description: 'Хрустящий багет с хрустящей корочкой',
             price: 110,
-            image: 'images/screenshot15.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/screenshot15.jpg`,
             category: 'bread',
             weight: 300,
             nutrition: {
@@ -122,7 +122,7 @@ const Menu = () => {
             name: 'Эклер с заварным кремом',
             description: 'Нежное заварное тесто с ванильным кремом',
             price: 160,
-            image: 'images/images11.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/images11.jpg`,
             category: 'pastry',
             weight: 120,
             nutrition: {
@@ -137,7 +137,7 @@ const Menu = () => {
             name: 'Черничный чизкейк',
             description: 'Нежный чизкейк с черничным соусом',
             price: 220,
-            image: 'images/images222.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/images222.jpg`,
             category: 'cake',
             weight: 300,
             nutrition: {
@@ -152,7 +152,7 @@ const Menu = () => {
             name: 'Бородинский хлеб',
             description: 'Традиционный ржано-пшеничный хлеб с тмином и кориандром',
             price: 130,
-            image: 'images/borodinsky.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/borodinsky.jpg`,
             category: 'bread',
             weight: 450,
             nutrition: {
@@ -167,7 +167,7 @@ const Menu = () => {
             name: 'Круассан с миндальным кремом',
             description: 'Слоеный круассан с нежным миндальным кремом и миндальными лепестками',
             price: 170,
-            image: 'images/almond-croissant.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/almond-croissant.jpg`,
             category: 'pastry',
             weight: 120,
             nutrition: {
@@ -182,7 +182,7 @@ const Menu = () => {
             name: 'Пирог с вишней',
             description: 'Нежное песочное тесто с кисло-сладкой вишневой начинкой',
             price: 200,
-            image: 'images/cherry-pie.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/cherry-pie.jpg`,
             category: 'pie',
             weight: 300,
             nutrition: {
@@ -197,7 +197,7 @@ const Menu = () => {
             name: 'Тирамису',
             description: 'Классический итальянский десерт с кофейной пропиткой и сыром маскарпоне',
             price: 280,
-            image: 'images/tiramisu.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/tiramisu.jpg`,
             category: 'cake',
             weight: 250,
             nutrition: {
@@ -212,7 +212,7 @@ const Menu = () => {
             name: 'Багет с зёрнами',
             description: 'Французский багет с семенами подсолнечника, льна и кунжута',
             price: 140,
-            image: 'images/grain-baguette.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/grain-baguette.jpg`,
             category: 'bread',
             weight: 350,
             nutrition: {
@@ -227,7 +227,7 @@ const Menu = () => {
             name: 'Шоколадный эклер',
             description: 'Заварное пирожное с шоколадным кремом и глазурью',
             price: 180,
-            image: 'images/chocolate-eclair.jpg',
+            image: `${process.env.PUBLIC_URL || ''}/images/chocolate-eclair.jpg`,
             category: 'pastry',
             weight: 150,
             nutrition: {
@@ -369,7 +369,7 @@ const Menu = () => {
           >
             <Box
               component="img"
-              src="/bread-icon.svg"
+              src={`${process.env.PUBLIC_URL || ''}/bread-icon.svg`}
               alt="Loading..."
               sx={{ width: 80, height: 80, filter: 'drop-shadow(0 0 8px rgba(255, 160, 0, 0.5))' }}
             />

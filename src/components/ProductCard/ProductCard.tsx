@@ -52,9 +52,14 @@ const ProductCard = ({ id, name, description, price, image, weight, nutrition }:
             <CardMedia
               component="img"
               height="200"
-              image={image}
+              image={image.startsWith('http') ? image : image.startsWith('/') ? image : `/${image}`}
               alt={name}
               sx={{ objectFit: 'cover' }}
+              onError={(e) => {
+                // Если изображение не загружается, используем заглушку
+                const target = e.target as HTMLImageElement;
+                target.src = '/images/placeholder.jpg';
+              }}
             />
             <Button
               className="add-to-cart-button"
