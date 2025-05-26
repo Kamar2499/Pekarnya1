@@ -113,11 +113,25 @@ const ProductCard = ({ id, name, description, price, image, weight, nutrition }:
                   Углеводы: {nutrition.carbs}г
                 </Typography>
               </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
-                  {weight} г · {nutrition.calories} ккал
-                </Typography>
-                <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1, gap: 1 }}>
+                <Box sx={{ 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  bgcolor: 'rgba(0, 0, 0, 0.03)',
+                  px: 1.5,
+                  py: 0.8,
+                  borderRadius: 1,
+                  border: '1px solid rgba(0, 0, 0, 0.05)'
+                }}>
+                  <Typography variant="body2" color="text.primary" sx={{ fontWeight: 'medium', fontSize: '0.85rem', lineHeight: 1.2 }}>
+                    {weight} г
+                  </Typography>
+                  <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem', lineHeight: 1.2 }}>
+                    {nutrition.calories} ккал
+                  </Typography>
+                </Box>
+                <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold', fontSize: '1.3rem' }}>
                   {price} ₽
                 </Typography>
               </Box>

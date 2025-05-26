@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, CssBaseline, Toolbar, styled, useScrollTrigger, Slide, Fade, Badge, IconButton } from '@mui/material';
+import { AppBar, Box, Button, Container, CssBaseline, Toolbar, styled, useScrollTrigger, Slide, Badge, IconButton } from '@mui/material';
 import { Outlet, useLocation, Link as RouterLink } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import { useEffect, useState } from 'react';
@@ -109,10 +109,18 @@ const Layout: React.FC<LayoutProps> = ({ onCartClick }) => {
         >
           <Box sx={{ width: '100%', maxWidth: '1440px', mx: 'auto', px: { xs: 2, sm: 3, md: 4 } }}>
             <Toolbar disableGutters sx={{ px: 0 }}>
-              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', mr: 4 }}>
-                <Fade in={!scrolled} timeout={500}>
-                  <Logo />
-                </Fade>
+              <Box sx={{ 
+                flexGrow: 1, 
+                display: 'flex', 
+                alignItems: 'center', 
+                mr: 4,
+                transition: 'all 0.3s ease-in-out',
+                transform: scrolled ? 'scale(0.9)' : 'scale(1)',
+                '&:hover': {
+                  transform: scrolled ? 'scale(0.95)' : 'scale(1.05)',
+                }
+              }}>
+                <Logo />
               </Box>
               
               <Box sx={{ display: 'flex', flexGrow: { xs: 1, md: 0 }, justifyContent: 'flex-end', alignItems: 'center' }}>
