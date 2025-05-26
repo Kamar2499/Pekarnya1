@@ -166,7 +166,7 @@ const Home: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'url("/bread-pattern.png")',
+            background: 'url("/Pekarnya1/bread-pattern.png")',
             opacity: 0.03,
             pointerEvents: 'none',
             backgroundSize: '400px',

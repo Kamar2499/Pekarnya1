@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from '@mui/material';
+import { Box, Typography, styled, useTheme } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 const LogoContainer = styled(RouterLink)(({ theme }) => ({
@@ -53,21 +53,31 @@ const LogoText = styled(Typography)(({ theme }) => ({
 }));
 
 const Logo = () => {
+  const theme = useTheme();
+  
   return (
-    <LogoContainer to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+    <LogoContainer to="/">
       <Box 
         component="img" 
-        src="/images/logo/bakery-logo.png" 
+        src="/Pekarnya1/images/logo/bakery-logo.png" 
         alt="Логотип пекарни" 
         className="logo-image"
         sx={{
           height: '60px',
           width: 'auto',
           marginRight: '12px',
-          transition: 'transform 0.3s ease',
+          transition: 'all 0.3s ease',
+          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
           '@media (max-width: 600px)': {
-            height: '40px',
+            height: '50px',
           },
+          [theme.breakpoints.down('sm')]: {
+            height: '45px',
+            marginRight: '8px',
+          },
+          '&:hover': {
+            transform: 'scale(1.05)',
+          }
         }}
       />
       <Typography 
