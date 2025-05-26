@@ -196,8 +196,19 @@ const Home: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <StyledHeading>
-                  {'Добро пожаловать в нашу пекарню'}
+                <StyledHeading 
+                  sx={{
+                    fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+                    mb: 4,
+                    textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                    '&::after': {
+                      width: '100px',
+                      height: '5px',
+                      bottom: -10,
+                    }
+                  }}
+                >
+                  Добро пожаловать в нашу пекарню
                 </StyledHeading>
               </motion.div>
               
