@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Pekarnya1/static/css/main.d3879e78.css",
+    "main.js": "/Pekarnya1/static/js/main.01aeec6c.js",
+    "static/js/453.b355579d.chunk.js": "/Pekarnya1/static/js/453.b355579d.chunk.js",
+    "index.html": "/Pekarnya1/index.html",
+    "main.01aeec6c.js.map": "/Pekarnya1/static/js/main.01aeec6c.js.map",
+    "453.b355579d.chunk.js.map": "/Pekarnya1/static/js/453.b355579d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3879e78.css",
+    "static/js/main.01aeec6c.js"
+  ]
+}
